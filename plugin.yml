@@ -1,18 +1,9 @@
-name: RedstonePVP
-version: "1.0.0"
+name: SitWands
 author: usy4
-api: "4.0.0"
-
-main: usy4\Main
-src-namespace-prefix: usy4
-
+api: [4.0.0]
+version: 1.0.0
+main: usy4\files
+descriptions: finally players can sit on players 
 permissions:
-  redstonepvp.command.redstonepvp:
-    default: op
-    description: "permission for use redstone command"
-
-  redstonepvp.command.redstonepvpmanage:
-    default: op
-
-  redstonepvp.command.redstonepvpmanage.itemframeshop:
+  sitwands.command:
     default: op
