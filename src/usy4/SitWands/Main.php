@@ -169,19 +169,18 @@ class Main extends PluginBase implements Listener{
 	
 	public function sitOnPlayer(Player $damager, Player $entity): bool{
 		
-		$link = new EntityLink($damager->getId(), $entity->getId(), EntityLink::TYPE_RIDER, true, true);
-		$pk = SetActorLinkPacket::create($link);
+		$pk = new EntityLink($damager->getId(), $entity->getId(), EntityLink::TYPE_RIDER, true, true);
+		$pk = new SetActorLinkPacket();
 		
 		// $pk = new SetActorLinkPacket();
 		// $pk->link = new EntityLink($damager->getId(), $entity->getId(), EntityLink::TYPE_RIDER, true, true);
 		
+		$pk = new SetActorDataPacket();
+        $pk->actorRuntimeId = $entity->getId();
+        $pk->metadata = [EntityMetadataProperties::RIDER_SEAT_POSITION => new Vec3MetadataProperty(new Vector3(0, +1.6, 0))];		
 		foreach ($this->getServer()->getOnlinePlayers() as $players) {
 			$players->getNetworkSession()->sendDataPacket($pk);
 		}
-		
-		$pk = new SetActorDataPacket();
-        $pk->actorRuntimeId = $entity->getId();
-        $pk->metadata = [EntityMetadataProperties::RIDER_SEAT_POSITION => new Vec3MetadataProperty(new Vector3(0, +1.6, 0))];
         $entity->getNetworkSession()->sendDataPacket($pk);
 		
 		// $entity->getNetworkSession()->getDataPropertyManager()->setVector3(EntityMetadataProperties::RIDER_SEAT_POSITION, new Vector3(0, +1.6, 0));
