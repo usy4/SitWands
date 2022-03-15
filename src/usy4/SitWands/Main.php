@@ -27,7 +27,7 @@ use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
 use pocketmine\network\mcpe\protocol\types\entity\StringMetadataProperty;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
 use pocketmine\network\mcpe\protocol\SetActorDataPacket;
-
+use pocketmine\network\mcpe\protocol\types\entity\Vec3MetadataProperty;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\entity\Entity;
@@ -170,7 +170,7 @@ class Main extends PluginBase implements Listener{
 	public function sitOnPlayer(Player $damager, Player $entity): bool{
 		
 		$link = new EntityLink($damager->getId(), $entity->getId(), EntityLink::TYPE_RIDER, true, true);
-		$pk = SetActorLinkPacket::create(EntityLink $link);
+		$pk = SetActorLinkPacket::create($link);
 		
 		// $pk = new SetActorLinkPacket();
 		// $pk->link = new EntityLink($damager->getId(), $entity->getId(), EntityLink::TYPE_RIDER, true, true);
@@ -180,8 +180,8 @@ class Main extends PluginBase implements Listener{
 		}
 		
 		$pk = new SetActorDataPacket();
-        $pk->actorRuntimeId = $entity->tagId;
-        $pk->metadata = [EntityMetadataProperties::RIDER_SEAT_POSITION => new Vector3(0, +1.6, 0)];
+        $pk->actorRuntimeId = $entity->getId();
+        $pk->metadata = [EntityMetadataProperties::RIDER_SEAT_POSITION => new Vec3MetadataProperty(new Vector3(0, +1.6, 0))];
         $entity->getNetworkSession()->sendDataPacket($pk);
 		
 		// $entity->getNetworkSession()->getDataPropertyManager()->setVector3(EntityMetadataProperties::RIDER_SEAT_POSITION, new Vector3(0, +1.6, 0));
