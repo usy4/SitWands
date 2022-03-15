@@ -1,9 +1,12 @@
 name: SitWands
-author: usy4
+authors:
+ - usy4
+ - Laith98Dev
 api: [4.0.0]
 version: 1.0.0
-main: usy4\files
-descriptions: finally players can sit on players 
+main: usy4\SitWands\Main
+descriptions: That's A plugin to sit player on players
+
 permissions:
   sitwands.command:
     default: op
