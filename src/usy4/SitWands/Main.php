@@ -173,22 +173,15 @@ class Main extends PluginBase implements Listener{
     }
 	
 	public function dismountFromPlayer(Player $entity): bool {
-		foreach($this->sit[$entity->getName()] as $p){
-			unset($this->sit2[($p)]);
-			unset($this->sit[($p)]);
-		}
-		
-		unset($this->sit[($entity->getName())]);
+		unset($this->sit[$entity->getName()]);
+		unset($this->sit2[$entity->getName()]);
 		$entity->teleport(new Vector3($entity->getPosition()->x, $entity->getPosition()->y + 0.1, $entity->getPosition()->z));
 		return true;
 	}
 	
-	public function dismountFromPlayer2(Player $entity): bool {
-		foreach($this->sit2[$entity->getName()] as $p){
-			unset($this->sit[($p)]);
-		}
-		
-		unset($this->sit2[($entity->getName())]);
+	public function dismountFromPlayer2(Player $entity): bool {	
+		unset($this->sit[$entity->getName()]);
+		unset($this->sit2[$entity->getName()]);
 		$entity->teleport(new Vector3($entity->getPosition()->x, $entity->getPosition()->y + 0.1, $entity->getPosition()->z));
 		return true;
 	}
