@@ -118,8 +118,8 @@ class Main extends PluginBase implements Listener{
 			return;
 		$player1->sendMessage($player2->getName().'§d sit on You');	
 		$player2->sendMessage('§dYou sit on §r'.$player1->getName());   
-		$this->sit[$player2->getName()] = [$player1->getName()];
-		$this->sit2[$player1->getName()] = [$player2->getName()];
+		$this->sit[$player2->getName()] = $player1->getName();
+		$this->sit2[$player1->getName()] = $player2->getName();
 		
 		$this->sitOnPlayer($player1, $player2);
 	}
