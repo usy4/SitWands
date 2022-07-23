@@ -50,7 +50,7 @@ class Main extends PluginBase implements Listener{
     public $sit = [];
 	
 	/** @var string[] */
-    public $onCombat = [];
+    public $sit = [];
 	
     public function onEnable() : void{
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
