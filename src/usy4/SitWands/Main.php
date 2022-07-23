@@ -35,20 +35,13 @@ use pocketmine\event\server\DataPacketReceiveEvent;
 use pocketmine\network\mcpe\protocol\InteractPacket;
 use pocketmine\item\ItemFactory;
 use pocketmine\event\Listener;
-
 use pocketmine\event\entity\EntityTeleportEvent;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityDamageEvent;
-
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\player\PlayerToggleSneakEvent;
 use pocketmine\event\player\PlayerJumpEvent;
-
-use pocketmine\command\{
-	Command, CommandSender
-};
-
 use usy4\SitWands\commands\SitWandCommand;
 
 class Main extends PluginBase implements Listener{
