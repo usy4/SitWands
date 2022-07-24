@@ -1,2 +1,2 @@
 # SitWands
-Ride the player or the player will ride you
+Sitwands its for fun you can sit on player head or make the player sit on your head.
