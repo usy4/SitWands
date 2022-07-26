@@ -178,9 +178,11 @@ public function sitOnPlayer(?Player $player1, ?Player $player2) {
 	
     	public function onTeleport(EntityTeleportEvent $event){
         	$player = $event->getEntity();
-        	if(isset($this->sit[$player->getName()])){
-            		$this->dismountFromPlayer($player);
-        	}
+		if($player instanceof Player){
+			if(isset($this->sit[$player->getName()])){
+				$this->dismountFromPlayer($player);
+			}
+		}
     	}
 
 
