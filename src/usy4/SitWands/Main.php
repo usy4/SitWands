@@ -34,6 +34,7 @@ class Main extends PluginBase implements Listener{
 
 
 	public $sit = [];
+	public $sit2 = [];
 
 	public function onEnable() : void{
 
