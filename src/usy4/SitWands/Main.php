@@ -13,11 +13,11 @@ use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
 use pocketmine\network\mcpe\protocol\SetActorDataPacket;
 use pocketmine\network\mcpe\protocol\types\entity\Vec3MetadataProperty;
+use pocketmine\event\server\DataPacketReceiveEvent;
+use pocketmine\network\mcpe\protocol\InteractPacket;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\entity\Entity;
-use pocketmine\event\server\DataPacketReceiveEvent;
-use pocketmine\network\mcpe\protocol\InteractPacket;
 use pocketmine\item\ItemFactory;
 use pocketmine\event\Listener;
 
@@ -104,17 +104,15 @@ class Main extends PluginBase implements Listener{
        
 	public function onDataPacketReceive(DataPacketReceiveEvent $event){
 		$packet = $event->getPacket();
-		switch($packet->pid()){
-			case InteractPacket::NETWORK_ID:
-				if($packet->action === InteractPacket::ACTION_LEAVE_VEHICLE){
+		  if ($packet instanceof InteractPacket){
+			  if($packet->action === InteractPacket::ACTION_LEAVE_VEHICLE){
 				    $player = $event->getOrigin()->getPlayer();
 					if(isset($this->sit[$player->getName()])){
 						$this->dismountFromPlayer($player);
 					}
-					$event->cancel();
-				}
-				break;
-		}
+				  $event->cancel();
+			  }
+		  }
 	}
     
 public function sitOnPlayer(?Player $player1, ?Player $player2) {
