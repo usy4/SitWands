@@ -94,13 +94,9 @@ class Main extends PluginBase implements Listener{
 
 
 	public function onHit(Player $player1, Player $player2) {
-		if($player2->getName() === $player1->getName()) return;
-		if(!isset($this->onCombat[$player1->getName()])){
-			$player1->sendMessage($player2->getName().'§d sit on You');
-		}             
-		if(!isset($this->onCombat[$player2->getName()])){
-			$player2->sendMessage('§dYou sit on §r'.$player1->getName());
-		}
+		if($player2->getName() === $player1->getName()) return;			
+		$player1->sendMessage($player2->getName().'§d sit on You');	
+		$player2->sendMessage('§dYou sit on §r'.$player1->getName());
 		$this->sit[$player2->getName()] = $player1->getName();
 		$this->sit2[$player1->getName()] = $player2->getName();
 		$this->SitOnPlayer($player1, $player2);
