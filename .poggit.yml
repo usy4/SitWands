@@ -5,5 +5,5 @@ branches:
 projects:
   SitWands:
     path: ""
-    icon: []
+    icon: icon.png
 ...
