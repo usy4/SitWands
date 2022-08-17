@@ -3,7 +3,7 @@ author: usy4
 api: [4.0.0]
 version: 1.0.0
 main: usy4\SitWands\Main
-descriptions: That's a plugin to sit player on players
+descriptions: a wand allow players to sit on another players
 
 permissions:
   sitwands.command:
