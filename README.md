@@ -1,5 +1,5 @@
 # SitWands
-Sitwands its for fun you can sit on player head or make the player sit on your head.
+a wand allow players to sit on another players, its simple.
 # How to use
 Just do /sitwands and you will get 2 wands for sit.
 # permissions
