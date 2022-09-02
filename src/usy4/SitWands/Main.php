@@ -18,7 +18,7 @@ use pocketmine\event\server\DataPacketReceiveEvent;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\entity\Entity;
-use pocketmine\item\ItemFactory;
+use pocketmine\item\VanillaItems;
 use pocketmine\event\Listener;
 
 use pocketmine\event\entity\EntityTeleportEvent;
@@ -44,10 +44,10 @@ class Main extends PluginBase implements Listener{
 
 	public function addWands(Player $player) 
 	{
-		$item = ItemFactory::getInstance()->get(280, 0, 1);
+		$item = VanillaItems::STICK();
 		$item->setCustomName("§r§dSit on the player §6Wand\n§7[Damage SomeOne]");
 		$player->getInventory()->addItem($item);
-		$item2 = ItemFactory::getInstance()->get(369, 0, 1);
+		$item2 = VanillaItems::BLAZE_ROD();
 		$item2->setCustomName("§r§dPlayer sit on you §6Wand\n§7[Damage SomeOne]");
 		$player->sendMessage("Done.");
 		$player->getInventory()->addItem($item2);
