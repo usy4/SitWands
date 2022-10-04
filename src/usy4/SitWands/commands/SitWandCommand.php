@@ -41,8 +41,12 @@ class SitWandCommand extends Command implements PluginOwned
 			$sender->sendMessage("use this command in game");
 			return;
 		}
+		if($sender->hasPermission("sitwands.command")){
+			$this->plugin->addWands($sender);
+		}else{
+			$sender->sendMessage("shoma dastresi nadarid!");
+		}
 		
-		$this->plugin->addWands($sender);
 	}
 	
 	public function getOwningPlugin(): Plugin{
