@@ -28,12 +28,12 @@ use pocketmine\player\Player;
 
 use usy4\SitWands\Main;
 
-class SitWandCommand extends Command implements PluginOwned
+class SitWandsCommand extends Command implements PluginOwned
 {
 	public function __construct(
 		public Main $plugin
 	) {
-		parent::__construct("sitwand", " Give you 2 wands", null, ["sit"]);
+		parent::__construct("sitwands", " Give you 2 wands", null, ["sit, sitwand"]);
                 $this->setPermission("sitwands.command");
 	}
 	
