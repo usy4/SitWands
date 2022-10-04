@@ -38,6 +38,8 @@ class SitWandCommand extends Command implements PluginOwned
 	}
 	
 	public function execute(CommandSender $sender, string $commandLabel, array $args) {
+                if(!$this->testPermission($sender)) return;
+
 		if(!$sender instanceof Player) {
 			$sender->sendMessage("use this command in game");
 			return;
