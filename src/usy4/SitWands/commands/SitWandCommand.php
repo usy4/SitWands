@@ -33,10 +33,13 @@ class SitWandCommand extends Command implements PluginOwned
 	public function __construct(
 		public Main $plugin
 	) {
-		parent::__construct("sitwand", " Give you 2 wands", "sitwands.command", ["sit"]);
+		parent::__construct("sitwand", " Give you 2 wands", null, ["sit"]);
+                $this->setPermission("sitwands.command");
 	}
 	
 	public function execute(CommandSender $sender, string $commandLabel, array $args) {
+                if(!$this->testPermission($sender)) return;
+
 		if(!$sender instanceof Player) {
 			$sender->sendMessage("use this command in game");
 			return;
