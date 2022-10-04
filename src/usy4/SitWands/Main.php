@@ -2,7 +2,7 @@
 
 namespace usy4\SitWands;
 
-use usy4\SitWands\commands\SitWandCommand;
+use usy4\SitWands\commands\SitWandsCommand;
 
 use pocketmine\math\Vector3;
 use pocketmine\network\mcpe\protocol\SetActorLinkPacket;
@@ -39,7 +39,7 @@ class Main extends PluginBase implements Listener{
 	public function onEnable() : void{
 
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		$this->getServer()->getCommandMap()->register($this->getName(), new SitWandCommand($this));        
+		$this->getServer()->getCommandMap()->register($this->getName(), new SitWandsCommand($this));        
     }
 
 	public function addWands(Player $player) 
