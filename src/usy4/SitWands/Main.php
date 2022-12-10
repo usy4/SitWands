@@ -57,7 +57,7 @@ class Main extends PluginBase implements Listener{
        * @ignoreCancelled true
        * @priority MONITOR
       */    
-    
+	
 	public function onDamage(EntityDamageEvent $event): void{
 		$entity = $event->getEntity();
 		if($entity instanceof Player){
