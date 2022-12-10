@@ -52,12 +52,15 @@ class Main extends PluginBase implements Listener{
 		$player->sendMessage("Done.");
 		$player->getInventory()->addItem($item2);
 	}
-
+	
+	/**
+       * @ignoreCancelled true
+       * @priority MONITOR
+      */    
     
 	public function onDamage(EntityDamageEvent $event): void{
 		$entity = $event->getEntity();
 		if($entity instanceof Player){
-	
 			if($event instanceof EntityDamageByEntityEvent && ($damager = $event->getDamager()) instanceof Player){
 				$item = $damager->getInventory()->getItemInHand()->getName();
 				if($item == "§r§dSit on the player §6Wand\n§7[Damage SomeOne]"){
